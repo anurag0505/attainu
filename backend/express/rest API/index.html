@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rest api </title>
+</head>
+<body>
+
+    <h1>This is about consuming api through ajax request</h1>
+    <button id="button">get details</button>
+    <button id="btn2">add student by post</button>
+    <button id="put">put/modify students</button>
+
+    <button id="delete">delete</button>
+
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  
+  
+     <script>
+         
+            $.ajax({
+             url:'/getStudents',
+             type:'GET',
+             dataType:'json',
+             success: function(data){
+                 $('body').append("<ul></ul>")
+                 for(i=0;i<data.length;i++){
+                     $('ul').append('<li>'+data[i].firstname+" "+data[i].lastname+"-"+data[i].hometown+'<button class="delete">delete</button>'+'</li>');
+                 }
+
+             }
+            });
+        
+
+        $('#btn2').click(function(){
+            var data={
+                        firstname:"ajay",
+                        lastname:"devgan",
+                        hometown:"mumbai"
+            }
+
+            $.ajax({
+                url:'/formStudents',
+                type:'POST',
+                contentType:'application/json',
+                dataType:'json',
+                data:JSON.stringify(data),
+                success:function(message){
+                    alert(JSON.stringify(message));
+                   
+                }    
+            });
+
+        });
+
+
+        $('#put').click(function(){
+            var data={
+                        firstname:"shyam",
+                        lastname:"singh",
+                        hometown:"london"
+            }
+
+            $.ajax({
+                url:'/modifyRequest/indu',
+                type:'PUT',
+                contentType:'application/json',
+                dataType:'json',
+                data:JSON.stringify(data),
+                success:function(message){
+                    alert(message.success);
+                   
+                }    
+            });
+
+        });
+
+
+        
+       $(document).ready(function(){
+            $('.delete').click(function(){
+                var student=$(this).parent().text().split(' ')[0];
+                console.log(student);
+                var details=$(this).parent(); 
+                
+                $.ajax({
+                    url:'/deleteRequest/'+student,
+                    type:'delete',
+                    dataType:'json',
+                    
+                    success:function(message){
+                        alert(JSON.stringify(message));
+                        details.hide();
+                    
+                    }    
+                });
+
+            });
+
+
+        });
+         
+     
+     
+     
+     
+     </script>
+    
+</body>
+</html>

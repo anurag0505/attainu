@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>new student form</title>
+</head>
+<body>
+    <h1>wolcome</h1>
+    <form action="/addStudent" method="post">
+
+        <input id="input1" type="text" name="firstname">
+        <input id="input2" type="text" name="lastname">
+        <input id="male" type="radio" name="gender" value="male"> male
+        <input id="female" type="radio" name="gender" value="female"> female
+        <button id="btn1" type="submit">add new student</button>
+
+
+
+
+
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <script>
+      $.ajax({
+          url:'formdata',
+          type:'POST',
+          dataType:json,
+          success:function(data){
+              var name=$('#input1').val();
+              var title=$('#input2').val();
+              var male=$('#male').val();
+              var female=$('#female').val();
+              
+              $('body').append('<ul></ul>');
+
+              for(i=0; i<data.length; i++){
+                  $('ul').append('<li></li>');
+                  $('ll').append(name[i]+" "+title[i]+"-");
+                  
+
+              }
+
+
+
+
+          }
+          
+           
+          
+      });
+  
+  
+  
+  </script>
+
+
+
+
+    </form>
+</body>
+</html>

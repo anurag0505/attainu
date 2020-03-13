@@ -1,0 +1,22 @@
+<h1>this is the home page</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Name</th>
+      <th scope="col">Rank</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each array}}
+
+    <tr>
+        <td scope="row">{{this.rank}}</td>
+       <td>{{this.name}}</td>
+    </tr>
+    {{/each}}
+    
+ </tbody>
+</table>

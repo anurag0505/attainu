@@ -1,0 +1,17 @@
+header{
+    height: 40px;
+    line-height: 40px;
+    background-color: red;
+    box-shadow: 3px 3px black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+body{
+    background-color: white;
+}
+footer{
+    background-color: purple;
+    box-shadow: 3px 3px white;
+    color: white;
+}

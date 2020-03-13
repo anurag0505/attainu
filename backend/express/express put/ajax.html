@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax form</title>
+</head>
+<body>
+
+    <h2>This will post data with ajax request</h2>
+
+    
+    <input id="input1" type="text" name="firstname">firstname
+    <input id="input2" type="text" name="lastname">lastname
+    <input id="gender" type="text" name="gender"> gender
+    
+    <button id="btn1" type="submit">add new student</button>
+    
+
+
+
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+
+    <script>
+
+        $(document).ready(function(){
+
+            $.ajax({
+                url:'addStudent',
+                type:'POST',
+                dataType:'json',
+                success:function(){
+                    var name=$('#input1').val();
+                    var title=$('#input2').val();
+                    var gender=$('#gender').val();
+
+                    $('#btn1').click(function(){
+                        $('body').append('<ul></ul>');
+                        
+
+                    })
+
+                }
+
+            })
+
+        });
+       
+   
+   
+    </script>
+</body>
+</html>
