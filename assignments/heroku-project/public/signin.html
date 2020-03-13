@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <h1>Create a New Account</h1>
+    <h4>Its Quick and Easy.</h4>
+
+
+
+    <form action="addData" method="post">
+
+        <input name="firstname" type="text" placeholder="enter firstname" size="40"><br>
+        <input name="lastname" type="text" placeholder="enter lastname" size="40"><br>
+        <input type="email" name="email" placeholder="enter email" size="40"><br>
+        <input name="username" type="text" placeholder="enter username" size="40"><br>
+        <input name="password" type="password" placeholder="enter password" size="40"><br>
+        <input name="gender" type="radio" value="male">Male
+        <input name="gender" type="radio" value="female">female
+        <br>
+        <button type="submit">create account</button>
+    </form>
+
+
+
+    <h2>Have An Account</h2>
+    <h4>Just Log In Here</h4>
+
+
+   <form action="auth" method="POST">
+        <input class="input2" name="username" type="text" placeholder="enter username">
+        <input class="input2" name="password" type="password" placeholder="enter password">
+        <br>
+        <button type="submit">Log In</button>
+    </form>
+    
+
+</body>
+</html>
